@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2017 by jamicope (http://jsbin.com/nayafa/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+
+<script id="jsbin-javascript">
+  //squaring each number in an array
+function squares(array) {
+  var squareNumbers = array.map(function(num) {
+  return num**2;
+});
+
+  return squareNumbers;
+};
+
+
+
+/* From here down, you are not expected to 
+   understand.... for now :)  
+   
+   
+   Nothing to see here!
+   
+*/
+
+
+// tests
+
+function testFunctionWorks(fn, input, expected) {
+  
+  var result = fn(input);
+  if (
+    result && result.length === expected.length &&
+    result.every(function(item) {
+      return expected.indexOf(item) > -1;
+    })) {
+    console.log('SUCCESS: `' + fn.name + '` works!')
+    return true;
+  } 
+  else {
+    console.error('FAILURE: `' + fn.name + '([' + input + '])` should be ' + expected +
+      ' but was ' + fn(input))
+    return false;
+  } 
+}
+
+function runTests() {
+  
+  var input1 = [1, 2, 3, 4, 5];
+  var result1 = [1, 4, 9, 16, 25];
+  var input2 = [2, 4, 6, 8];
+  var result2 = [4, 16, 36, 64];
+  
+  var testResults = [
+    testFunctionWorks(squares, input1, result1),
+    testFunctionWorks(squares, input2, result2),
+  ];
+  
+  
+  
+  var numPassing = testResults.filter(function(result){ return result; }).length;
+  console.log(numPassing + ' out of ' + testResults.length + ' tests passing.');
+}
+
+runTests();
+</script>
+</body>
+</html>
